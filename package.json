@@ -1,8 +1,10 @@
 {
-  "name": "jslint",
-  "fullName": "jslint",
-  "description": "a basic add-on",
-  "author": "",
-  "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
-  "version": "0.1"
+    'id': 'jslint@rolandwarmerdam.co.nz',
+    'name': 'jslint',
+    'fullName': 'JSLint',
+    'description': 'The JavaScript Code Quality Tool',
+    'author': 'Roland Warmerdam',
+    'homepage': 'https://github.com/Rowno/jslint',
+    'license': 'MPL 1.1/GPL 2.0/LGPL 2.1',
+    'version': '0.1'
 }
