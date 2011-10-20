@@ -1,10 +1,10 @@
 {
-    'id': 'jslint@rolandwarmerdam.co.nz',
-    'name': 'jslint',
-    'fullName': 'JSLint',
+    'id': 'jslinter@rolandwarmerdam.co.nz',
+    'name': 'jslinter',
+    'fullName': 'JSLinter',
     'description': 'The JavaScript Code Quality Tool',
     'author': 'Roland Warmerdam',
-    'homepage': 'https://github.com/Rowno/jslint',
+    'homepage': 'https://github.com/Rowno/jslinter',
     'license': 'MPL 1.1/GPL 2.0/LGPL 2.1',
     'version': '0.1'
 }
