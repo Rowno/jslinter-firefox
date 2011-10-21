@@ -1,12 +1,7 @@
-self.on('message', function (scriptUrls) {
-    var i = 0,
-        length = 0,
-        content = '';
+/*global self: false */
 
-    length = scriptUrls.length;
-    for (i = 0; i < length; i += 1) {
-        content += '<div class="row"><input type="checkbox" value="' + scriptUrls[i] + '" />' + scriptUrls[i] + '</div>';
-    }
-    
-    document.getElementById('scripts').innerHTML = content;
+'use strict';
+
+self.on('message', function (renderedScripts) {
+    document.getElementById('scripts').innerHTML = renderedScripts;
 });

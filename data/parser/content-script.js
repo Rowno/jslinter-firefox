@@ -1,3 +1,5 @@
+'use strict';
+
 var scripts = document.querySelectorAll('script'),
     scriptUrls = [],
     i = 0,
