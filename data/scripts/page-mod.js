@@ -1,3 +1,5 @@
+/*global self: false */
+
 'use strict';
 
 var scripts = document.querySelectorAll('script'),

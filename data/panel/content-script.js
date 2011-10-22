@@ -1,4 +1,4 @@
-/*global self: false */
+/*global self: false, $: false */
 
 'use strict';
 
