@@ -2,10 +2,12 @@
 
 'use strict';
 
-self.on('message', function (content) {
-    if (content === '') {
-        content = 'No scripts on this page';
-    }
+var $scripts = $('#scripts');
 
-    document.getElementById('scripts').innerHTML = content;
+self.port.on('scripts', function (content) {
+    $scripts.html(content);
+});
+
+$scripts.delegate('input', 'change', function () {
+    self.port.emit('script-change', $(this).val(), $(this).is(':checked'));
 });
