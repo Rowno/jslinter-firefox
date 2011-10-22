@@ -2,6 +2,10 @@
 
 'use strict';
 
-self.on('message', function (renderedScripts) {
-    document.getElementById('scripts').innerHTML = renderedScripts;
+self.on('message', function (content) {
+    if (content === '') {
+        content = 'No scripts on this page';
+    }
+
+    document.getElementById('scripts').innerHTML = content;
 });
