@@ -3,10 +3,42 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Panel</title>
+    <title>JSLinter</title>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <div id="scripts"></div>
+    <header class="clearfix">
+        <h1>JSLinter</h1>
+
+        <nav id="nav">
+            <ul>
+                <li data-id="scripts">Scripts</li>
+                <li data-id="results">Results</li>
+                <li data-id="options">Options</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="main">
+        <div id="scripts" class="page">
+            <div class="script">
+                <label><input type="checkbox" value="http://www.google.co.nz/extern_js/f/CgJlbhICbnorMEU4ACwrMFo4ACwrMA44ACwrMBc4ACwrMDw4ACwrMFE4ACwrMFk4ACwrMJgBOAAsKzAKOABAngGaAgJjYywrMBY4ACwrMBk4ACwrMCU4ACwrMCo4ACwrMCs4AJoCC2pzX3JlZGlyZWN0LCswNTgALCswQTgALCswTTgALCswTjgALCswUzgAmgIGc2VhcmNoLCswVDgALCswYzgALCswaTgALCsweDgALCswkgE4ACwrMJcBOAAsKzB0OAAsKzAdOAAsKzBcOACaAgJjYywrMBg4ACwrMCY4AJoCA3d0bSyAAluQAlQ/kv39VepB6XY.js" checked /> http://www.google.co.nz/extern_js/f/CgJlbhICbnorMEU4ACwrMFo4ACwrMA44ACwrMBc4ACwrMDw4ACwrMFE4ACwrMFk4ACwrMJgBOAAsKzAKOABAngGaAgJjYywrMBY4ACwrMBk4ACwrMCU4ACwrMCo4ACwrMCs4AJoCC2pzX3JlZGlyZWN0LCswNTgALCswQTgALCswTTgALCswTjgALCswUzgAmgIGc2VhcmNoLCswVDgALCswYzgALCswaTgALCsweDgALCswkgE4ACwrMJcBOAAsKzB0OAAsKzAdOAAsKzBcOACaAgJjYywrMBg4ACwrMCY4AJoCA3d0bSyAAluQAlQ/kv39VepB6XY.js</label>
+            </div>
+            <div class="script">
+                <label><input type="checkbox" value="https://addons.mozilla.org/en-US/developers/docs/sdk/1.2/packages/addon-kit/docs/panel.html#Panel%28options%29" checked /> https://addons.mozilla.org/en-US/developers/docs/sdk/1.2/packages/addon-kit/docs/panel.html#Panel%28options%29</label>
+            </div>
+            <div class="script">
+                <label><input type="checkbox" value="file:///home/rowno/Programming/firefox/jslinter/data/panel/panel.html" checked /> file:///home/rowno/Programming/firefox/jslinter/data/panel/panel.html</label>
+            </div>
+        </div>
+
+        <div id="results" class="page">
+            No results
+        </div>
+
+        <div id="options" class="page">
+            JSLint options
+        </div>
+    </div>
 </body>
 </html>
