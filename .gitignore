@@ -10,6 +10,7 @@
 *~
 *.sass-cache
 *.pyc
+*.xpi
 
 # OS or Editor folders
 .DS_Store
