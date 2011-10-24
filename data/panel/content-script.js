@@ -8,7 +8,14 @@ var $scripts = $('#scripts'),
     $results = $('#results'),
     activePage = {};
 
-self.port.on('scripts', function (content) {
+
+self.port.on('scripts', function (numScripts, content) {
+    if (numScripts === 0) {
+        $analyse.attr('disabled', 'disabled');
+    } else {
+        $analyse.removeAttr('disabled');
+    }
+
     $scripts.html(content);
 });
 
@@ -39,10 +46,21 @@ $nav.delegate('li', 'click', function () {
 
 var Analyse = {
     start: function () {
+        var scripts = [];
+
         $analyse.attr('disabled', 'disabled');
         $analyse.text('Analysing');
-        changePage('results');
         $results.html('');
+        changePage('results');
+
+        $scripts.find('input').each(function () {
+            var $this = $(this);
+            if ($this.is(':checked')) {
+                scripts.push($this.val());
+            }
+        });
+
+        self.port.emit('analysis-start', scripts);
     },
 
     stop: function () {
@@ -52,18 +70,12 @@ var Analyse = {
 };
 
 $analyse.click(function () {
-    var scripts = [];
-
-    $scripts.find('input').each(function () {
-        var $this = $(this);
-        if ($this.is(':checked')) {
-            scripts.push($this.val());
-        }
-    });
-
     $analyse.blur();
     Analyse.start();
-    self.port.emit('analysis-start', scripts);
+});
+
+self.port.on('analysis-start', function (content) {
+    Analyse.start();
 });
 
 self.port.on('analysis-result', function (content) {
