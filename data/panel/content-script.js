@@ -6,42 +6,54 @@ var $scripts = $('#scripts'),
     $nav = $('#nav'),
     $analyse = $('#analyse'),
     $results = $('#results'),
-    activePage = {};
+    activePage = {},
+    resultRowTemplate = $('#result-row').html(),
+    scriptRowTemplate = $('#script-row').html();
 
 
-self.port.on('scripts', function (numScripts, content) {
-    if (numScripts === 0) {
+
+// Load list of scripts into the scripts tab
+self.port.on('scripts-load', function (scripts) {
+    if (scripts.length === 0) {
         $analyse.attr('disabled', 'disabled');
     } else {
         $analyse.removeAttr('disabled');
     }
 
-    $scripts.html(content);
+    $scripts.html(Mustache.to_html(scriptRowTemplate, {scripts: scripts}));
 });
 
+// Emit event script's enable/disable checkbox is changed
 $scripts.delegate('input', 'change', function () {
     var $this = $(this);
     self.port.emit('script-change', $this.val(), $this.is(':checked'));
 });
 
 
-function changePage(pageId) {
-    var navItem = $nav.find('li[data-id=\'' + pageId + '\']');
+var Pages = {
+    change: function(pageId) {
+        var navItem = $nav.find('li[data-id=\'' + pageId + '\']');
 
-    activePage.navItem.removeClass('active');
-    activePage.page.hide();
+        if (activePage.navItem !== navItem) {
+            activePage.navItem.removeClass('active');
+            activePage.page.hide();
 
-    activePage.navItem = navItem.addClass('active');
-    activePage.page = $('#' + pageId).show();
+            activePage.navItem = navItem.addClass('active');
+            activePage.page = $('#' + pageId).show();
+        }
+    }
 }
 
+// Show the initial page
 activePage.navItem = $nav.find('li:first-child').addClass('active');
 activePage.page = $('#' + activePage.navItem.data('id')).show();
 
 
+// Change the active page when a menu item is clicked
 $nav.delegate('li', 'click', function () {
-    changePage($(this).data('id'));
+    Pages.change($(this).data('id'));
 });
+
 
 
 var Analyse = {
@@ -51,8 +63,9 @@ var Analyse = {
         $analyse.attr('disabled', 'disabled');
         $analyse.text('Analysing');
         $results.html('');
-        changePage('results');
+        Pages.change('results');
 
+        // Get all the enabled scripts
         $scripts.find('input').each(function () {
             var $this = $(this);
             if ($this.is(':checked')) {
@@ -74,14 +87,17 @@ $analyse.click(function () {
     Analyse.start();
 });
 
+// Start the analysis if it was triggered from a different UI component
 self.port.on('analysis-start', function (content) {
     Analyse.start();
 });
 
-self.port.on('analysis-result', function (content) {
-    $results.append(content);
+// Display each analysis result as it's ready
+self.port.on('analysis-result', function (result) {
+    $results.append(Mustache.to_html(resultRowTemplate, result));
 });
 
+// Update UI when analysis is complete
 self.port.on('analysis-complete', function () {
     Analyse.stop();
 });

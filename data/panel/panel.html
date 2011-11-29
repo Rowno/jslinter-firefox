@@ -43,5 +43,23 @@
             JSLint options
         </div>
     </div>
+
+    <script id="result-row" type="text/mustache">
+        <div class="result">
+            {{result}} {{url}}
+        </div>
+    </script>
+
+    <script id="script-row" type="text/mustache">
+        {{#scripts}}
+        <div class="script">
+            <label><input type="checkbox" value="{{url}}" {{#isEnabled}}checked{{/isEnabled}} /> {{url}}</label>
+        </div>
+        {{/scripts}}
+
+        {{^scripts}}
+        No scripts on this page
+        {{/scripts}}
+    </script>
 </body>
 </html>
