@@ -70,9 +70,6 @@ td { vertical-align: top; }
 body {
     padding: 5px;
     padding-top: 2px;
-    -moz-box-sizing: border-box;
-    display: -moz-box;
-    -moz-box-orient: vertical;
     background: #fff;
 }
 
@@ -92,6 +89,7 @@ header h1 {
     position: relative;
     top: 3px;
     float: left;
+    z-index: 10;
 }
 
     #nav ul {
@@ -119,7 +117,11 @@ header h1 {
     }
 
 #main {
-    -moz-box-flex: 1;
+    position: absolute;
+    top: 35px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
     padding: 5px;
     border: 3px solid #a4c639;
 }
@@ -132,7 +134,22 @@ header h1 {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        font-weight: bold;
+        font-size: 11px;
     }
+
+        :-moz-any(.script, .result) .full {
+            display: none;
+            text-decoration: underline;
+        }
+
+        :-moz-any(.script, .result):hover .full {
+            display: inline;
+        }
+
+        :-moz-any(.script, .result):hover .filename {
+            display: none;
+        }
 
     .result {
         padding-left: 14px;

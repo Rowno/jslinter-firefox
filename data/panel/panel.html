@@ -38,14 +38,23 @@
 
     <script id="result-row" type="text/mustache">
         <div class="result">
-            {{#url}}{{filename}}{{/url}}
+            {{#url}}
+            <span class="filename">{{filename}}</span>
+            <span class="full">{{href}}</span>
+            {{/url}}
         </div>
     </script>
 
     <script id="script-row" type="text/mustache">
         {{#scripts}}
         <div class="script">
-            <label><input type="checkbox" value="{{#url}}{{href}}{{/url}}" {{#enabled}}checked{{/enabled}} /> {{#url}}{{filename}}{{/url}}</label>
+            <label>
+                <input type="checkbox" value="{{#url}}{{href}}{{/url}}" {{#enabled}}checked{{/enabled}} />
+                {{#url}}
+                <span class="filename">{{filename}}</span>
+                <span class="full">{{href}}</span>
+                {{/url}}
+            </label>
         </div>
         {{/scripts}}
 
