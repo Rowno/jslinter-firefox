@@ -24,15 +24,7 @@
 
     <div id="main">
         <div id="scripts" class="page">
-            <div class="script">
-                <label><input type="checkbox" value="http://www.google.co.nz/extern_js/f/CgJlbhICbnorMEU4ACwrMFo4ACwrMA44ACwrMBc4ACwrMDw4ACwrMFE4ACwrMFk4ACwrMJgBOAAsKzAKOABAngGaAgJjYywrMBY4ACwrMBk4ACwrMCU4ACwrMCo4ACwrMCs4AJoCC2pzX3JlZGlyZWN0LCswNTgALCswQTgALCswTTgALCswTjgALCswUzgAmgIGc2VhcmNoLCswVDgALCswYzgALCswaTgALCsweDgALCswkgE4ACwrMJcBOAAsKzB0OAAsKzAdOAAsKzBcOACaAgJjYywrMBg4ACwrMCY4AJoCA3d0bSyAAluQAlQ/kv39VepB6XY.js" checked /> http://www.google.co.nz/extern_js/f/CgJlbhICbnorMEU4ACwrMFo4ACwrMA44ACwrMBc4ACwrMDw4ACwrMFE4ACwrMFk4ACwrMJgBOAAsKzAKOABAngGaAgJjYywrMBY4ACwrMBk4ACwrMCU4ACwrMCo4ACwrMCs4AJoCC2pzX3JlZGlyZWN0LCswNTgALCswQTgALCswTTgALCswTjgALCswUzgAmgIGc2VhcmNoLCswVDgALCswYzgALCswaTgALCsweDgALCswkgE4ACwrMJcBOAAsKzB0OAAsKzAdOAAsKzBcOACaAgJjYywrMBg4ACwrMCY4AJoCA3d0bSyAAluQAlQ/kv39VepB6XY.js</label>
-            </div>
-            <div class="script">
-                <label><input type="checkbox" value="https://addons.mozilla.org/en-US/developers/docs/sdk/1.2/packages/addon-kit/docs/panel.html#Panel%28options%29" checked /> https://addons.mozilla.org/en-US/developers/docs/sdk/1.2/packages/addon-kit/docs/panel.html#Panel%28options%29</label>
-            </div>
-            <div class="script">
-                <label><input type="checkbox" value="file:///home/rowno/Programming/firefox/jslinter/data/panel/panel.html" checked /> file:///home/rowno/Programming/firefox/jslinter/data/panel/panel.html</label>
-            </div>
+            No scripts
         </div>
 
         <div id="results" class="page">
@@ -46,14 +38,14 @@
 
     <script id="result-row" type="text/mustache">
         <div class="result">
-            {{result}} {{url}}
+            {{#url}}{{filename}}{{/url}}
         </div>
     </script>
 
     <script id="script-row" type="text/mustache">
         {{#scripts}}
         <div class="script">
-            <label><input type="checkbox" value="{{url}}" {{#enabled}}checked{{/enabled}} /> {{url}}</label>
+            <label><input type="checkbox" value="{{#url}}{{href}}{{/url}}" {{#enabled}}checked{{/enabled}} /> {{#url}}{{filename}}{{/url}}</label>
         </div>
         {{/scripts}}
 
