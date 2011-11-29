@@ -135,11 +135,8 @@ header {
 }
 
     .script, .result {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        font-weight: bold;
         font-size: 11px;
+        font-weight: bold;
     }
 
         :-moz-any(.script, .result) .full {
@@ -155,11 +152,33 @@ header {
             display: none;
         }
 
+        .script, .result .url {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
     .result {
         padding-left: 14px;
-        background: url(twistyClosed.png) no-repeat left;
         cursor: pointer;
     }
+
+        .result.success {
+            color: green;
+        }
+
+        .result.error {
+            color: red;
+            background: url(twistyClosed.png) no-repeat left;
+        }
+
+        .result .url {
+            margin-right: 3em;
+        }
+
+        .result .error-count {
+            float: right;
+        }
 
 
 

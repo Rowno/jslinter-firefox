@@ -37,9 +37,13 @@
     </div>
 
     <script id="result-row" type="text/ejs">
-        <div class="result">
-            <span class="filename"><%= url.filename %></span>
-            <span class="full"><%= url.href %></span>
+        <div class="result <% if (errors.length === 0) { %>success<% } else { %>error<% } %>">
+            <span class="error-count"><%= errors.length %></span>
+
+            <div class="url">
+                <span class="filename"><%= url.filename %></span>
+                <span class="full"><%= url.href %></span>
+            </div>
         </div>
     </script>
 
@@ -48,7 +52,6 @@
         <div class="script">
             <label>
                 <input type="checkbox" value="<%= scripts[i].url.href %>" <% if (scripts[i].enabled) { %>checked<% } %> />
-
                 <span class="filename"><%= scripts[i].url.filename %></span>
                 <span class="full"><%= scripts[i].url.href %></span>
             </label>
