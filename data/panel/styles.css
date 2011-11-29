@@ -68,8 +68,6 @@ td { vertical-align: top; }
 /* ==|== primary styles ===================================================== */
 
 body {
-    padding: 5px;
-    padding-top: 2px;
     background: #fff;
 }
 
@@ -78,43 +76,49 @@ html, body {
     height: 100%;
 }
 
-header h1 {
-    float: left;
-    margin: 0;
-    font-size: 24px;
-    color: #a4c639;
+header {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
 }
 
-#nav {
-    position: relative;
-    top: 3px;
-    float: left;
-    z-index: 10;
-}
-
-    #nav ul {
+    header h1 {
         float: left;
+        margin: 0;
+        font-size: 24px;
+        color: #a4c639;
     }
 
-        #nav li {
+    #nav {
+        position: relative;
+        float: left;
+        z-index: 10;
+    }
+
+        #nav ul {
+            float: left;
+        }
+
+            #nav li {
+                float: left;
+                margin-left: 5px;
+                padding: 5px;
+                cursor: pointer;
+                border: 3px solid #a4c639;
+                border-bottom: none;
+                background: #fff;
+                font-weight: bold;
+            }
+
+            #nav li.active, #nav li:hover {
+                padding-bottom: 8px;
+            }
+
+        #nav .actions {
             float: left;
             margin-left: 5px;
-            padding: 5px;
-            cursor: pointer;
-            border: 3px solid #a4c639;
-            border-bottom: none;
-            background: #fff;
-            font-weight: bold;
         }
-
-        #nav li.active, #nav li:hover {
-            padding-bottom: 8px;
-        }
-
-    #nav .actions {
-        float: left;
-        margin-left: 5px;
-    }
 
 #main {
     position: absolute;

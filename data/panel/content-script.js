@@ -6,9 +6,7 @@ var $scripts = $('#scripts'),
     $nav = $('#nav'),
     $analyse = $('#analyse'),
     $results = $('#results'),
-    activePage = {},
-    resultRowTemplate = $('#result-row').html(),
-    scriptRowTemplate = $('#script-row').html();
+    activePage = {};
 
 
 
@@ -20,7 +18,7 @@ self.port.on('scripts-load', function (scripts) {
         $analyse.removeAttr('disabled');
     }
 
-    $scripts.html(Mustache.to_html(scriptRowTemplate, {scripts: scripts}));
+    $scripts.html('script-row', {scripts: scripts});
 });
 
 // Emit event script's enable/disable checkbox is changed
@@ -94,7 +92,7 @@ self.port.on('analysis-start', function (content) {
 
 // Display each analysis result as it's ready
 self.port.on('analysis-result', function (result) {
-    $results.append(Mustache.to_html(resultRowTemplate, result));
+    $results.append('result-row', result);
 });
 
 // Update UI when analysis is complete

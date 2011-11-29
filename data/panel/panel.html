@@ -36,31 +36,28 @@
         </div>
     </div>
 
-    <script id="result-row" type="text/mustache">
+    <script id="result-row" type="text/ejs">
         <div class="result">
-            {{#url}}
-            <span class="filename">{{filename}}</span>
-            <span class="full">{{href}}</span>
-            {{/url}}
+            <span class="filename"><%= url.filename %></span>
+            <span class="full"><%= url.href %></span>
         </div>
     </script>
 
-    <script id="script-row" type="text/mustache">
-        {{#scripts}}
+    <script id="script-row" type="text/ejs">
+        <% for (var i=0,l=scripts.length; i < l; i++) { %>
         <div class="script">
             <label>
-                <input type="checkbox" value="{{#url}}{{href}}{{/url}}" {{#enabled}}checked{{/enabled}} />
-                {{#url}}
-                <span class="filename">{{filename}}</span>
-                <span class="full">{{href}}</span>
-                {{/url}}
+                <input type="checkbox" value="<%= scripts[i].url.href %>" <% if (scripts[i].enabled) { %>checked<% } %> />
+
+                <span class="filename"><%= scripts[i].url.filename %></span>
+                <span class="full"><%= scripts[i].url.href %></span>
             </label>
         </div>
-        {{/scripts}}
+        <% } %>
 
-        {{^scripts}}
+        <% if (scripts.length === 0) { %>
         No scripts on this page
-        {{/scripts}}
+        <% } %>
     </script>
 </body>
 </html>
