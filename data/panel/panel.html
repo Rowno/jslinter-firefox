@@ -7,7 +7,7 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <header class="clearfix">
+    <header id="header" class="clearfix">
         <h1>JSLinter</h1>
 
         <nav id="nav">
@@ -24,7 +24,7 @@
 
     <div id="main">
         <div id="scripts" class="page">
-            No scripts
+            No scripts on this page
         </div>
 
         <div id="results" class="page">
@@ -38,11 +38,17 @@
 
     <script id="result-row" type="text/ejs">
         <div class="result <% if (errors.length === 0) { %>success<% } else { %>error<% } %>">
-            <span class="error-count"><%= errors.length %></span>
+            <header>
+                <span class="error-count"><%= errors.length %></span>
 
-            <div class="url">
-                <span class="filename"><%= url.filename %></span>
-                <span class="full"><%= url.href %></span>
+                <div class="url">
+                    <span class="filename"><%= url.filename %></span>
+                    <span class="full"><%= url.href %></span>
+                </div>
+            </header>
+
+            <div class="details">
+                <%== report %>
             </div>
         </div>
     </script>
@@ -50,11 +56,13 @@
     <script id="script-row" type="text/ejs">
         <% for (var i=0,l=scripts.length; i < l; i++) { %>
         <div class="script">
-            <label>
-                <input type="checkbox" value="<%= scripts[i].url.href %>" <% if (scripts[i].enabled) { %>checked<% } %> />
-                <span class="filename"><%= scripts[i].url.filename %></span>
-                <span class="full"><%= scripts[i].url.href %></span>
-            </label>
+            <header>
+                <label>
+                    <input type="checkbox" value="<%= scripts[i].url.href %>" <% if (scripts[i].enabled) { %>checked<% } %> />
+                    <span class="filename"><%= scripts[i].url.filename %></span>
+                    <span class="full"><%= scripts[i].url.href %></span>
+                </label>
+            </header>
         </div>
         <% } %>
 

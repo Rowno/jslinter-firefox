@@ -12,12 +12,6 @@ var $scripts = $('#scripts'),
 
 // Load list of scripts into the scripts tab
 self.port.on('scripts-load', function (scripts) {
-    if (scripts.length === 0) {
-        $analyse.attr('disabled', 'disabled');
-    } else {
-        $analyse.removeAttr('disabled');
-    }
-
     $scripts.html('script-row', {scripts: scripts});
 });
 
@@ -26,6 +20,11 @@ $scripts.delegate('input', 'change', function () {
     var $this = $(this);
     self.port.emit('script-change', $this.val(), $this.is(':checked'));
 });
+
+$results.delegate('.result header', 'click', function(){
+    $(this).parent().toggleClass('open');
+});
+
 
 
 var Pages = {
@@ -58,11 +57,6 @@ var Analyse = {
     start: function () {
         var scripts = [];
 
-        $analyse.attr('disabled', 'disabled');
-        $analyse.text('Analysing');
-        $results.html('');
-        Pages.change('results');
-
         // Get all the enabled scripts
         $scripts.find('input').each(function () {
             var $this = $(this);
@@ -71,7 +65,16 @@ var Analyse = {
             }
         });
 
-        self.port.emit('analysis-start', scripts);
+        if (scripts.length > 0) {
+            $analyse.attr('disabled', 'disabled');
+            $analyse.text('Analysing');
+            $results.text('');
+            self.port.emit('analysis-start', scripts);
+        } else {
+            $results.text('No results');
+        }
+
+        Pages.change('results');
     },
 
     stop: function () {
