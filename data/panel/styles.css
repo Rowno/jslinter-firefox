@@ -135,7 +135,11 @@ html, body {
     padding: 5px;
 }
 
-    :-moz-any(.script, .result) {
+    :-moz-any(#scripts, #options) label {
+        display: block;
+    }
+
+    .script, .result {
         font-size: 11px;
     }
 
@@ -232,6 +236,22 @@ html, body {
                 text-indent: 0;
             }
 
+    #options .columns {
+        margin-bottom: 1.5em;
+    }
+
+        #options .column {
+            float: left;
+            margin-right: 1.5em;
+        }
+
+    #options .number {
+        width: 3em;
+    }
+
+    #options .list {
+        width: 30em;
+    }
 
 
 /* ==|== non-semantic helper classes ======================================== */

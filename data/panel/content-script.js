@@ -6,6 +6,7 @@ var $scripts = $('#scripts'),
     $nav = $('#nav'),
     $analyse = $('#analyse'),
     $results = $('#results'),
+    $options = $('#options'),
     activePage = {};
 
 
@@ -15,14 +16,46 @@ self.port.on('scripts-load', function (scripts) {
     $scripts.html('script-row', {scripts: scripts});
 });
 
-// Emit event script's enable/disable checkbox is changed
+// Load set options
+self.port.on('options', function (options) {
+    var i, input;
+
+    for (i in options) {
+        if (options.hasOwnProperty(i)) {
+            input = $options.find('[name="' + i + '"]');
+
+            if (input.is(':checkbox')) {
+                input.attr('checked', 'checked');
+            } else {
+                input.val(options[i]);
+            }
+        }
+    }
+});
+
+// Emit an event when a script's enable/disable checkbox is changed
 $scripts.delegate('input', 'change', function () {
     var $this = $(this);
     self.port.emit('script-change', $this.val(), $this.is(':checked'));
 });
 
+// Show/hide a script's analysis report
 $results.delegate('.result header', 'click', function(){
     $(this).parent().toggleClass('open');
+});
+
+// Emit an event when an option is changed
+$options.delegate('input', 'change', function () {
+    var $this = $(this),
+        value;
+
+    if ($this.is(':checkbox')) {
+        value = $this.is(':checked');
+    } else {
+        value = $this.val();
+    }
+
+    self.port.emit('option-change', $this.attr('name'), value);
 });
 
 
