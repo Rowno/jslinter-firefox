@@ -40,8 +40,15 @@ $scripts.delegate('input', 'change', function () {
 });
 
 // Show/hide a script's analysis report
-$results.delegate('.result header', 'click', function(){
-    $(this).parent().toggleClass('open');
+$results.delegate('.result [role="tab"]', 'click', function () {
+    var $this = $(this),
+        value;
+
+    value = !($this.attr('aria-selected') === 'true');
+
+    $this
+        .attr('aria-selected', value)
+        .next().attr('aria-expanded', value);
 });
 
 // Emit an event when an option is changed
@@ -62,26 +69,26 @@ $options.delegate('input', 'change', function () {
 
 var Pages = {
     change: function(pageId) {
-        var navItem = $nav.find('li[data-id=\'' + pageId + '\']');
+        var navItem = $nav.find('li[aria-controls=\'' + pageId + '\']');
 
         if (activePage.navItem !== navItem) {
-            activePage.navItem.removeClass('active');
+            activePage.navItem.attr('aria-selected', false);
             activePage.page.hide();
 
-            activePage.navItem = navItem.addClass('active');
+            activePage.navItem = navItem.attr('aria-selected', true);
             activePage.page = $('#' + pageId).show();
         }
     }
 }
 
 // Show the initial page
-activePage.navItem = $nav.find('li:first-child').addClass('active');
-activePage.page = $('#' + activePage.navItem.data('id')).show();
+activePage.navItem = $nav.find('li:first-child').attr('aria-selected', true);
+activePage.page = $('#' + activePage.navItem.attr('aria-controls')).show();
 
 
 // Change the active page when a menu item is clicked
 $nav.delegate('li', 'click', function () {
-    Pages.change($(this).data('id'));
+    Pages.change($(this).attr('aria-controls'));
 });
 
 

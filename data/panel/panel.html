@@ -10,11 +10,11 @@
     <header id="header" class="clearfix">
         <h1>JSLinter</h1>
 
-        <nav id="nav">
+        <nav id="nav" role="tablist">
             <ul>
-                <li data-id="scripts">Scripts</li>
-                <li data-id="results">Results</li>
-                <li data-id="options">Options</li>
+                <li aria-controls="scripts" role="tab" aria-selected="true" tabindex="0">Scripts</li>
+                <li aria-controls="results" role="tab" aria-selected="false" tabindex="0">Results</li>
+                <li aria-controls="options" role="tab" aria-selected="false" tabindex="0">Options</li>
             </ul>
             <div class="actions">
                 <button id="analyse">Analyse</button>
@@ -22,16 +22,16 @@
         </nav>
     </header>
 
-    <div id="main">
-        <div id="scripts" class="page">
+    <div id="main" role="main">
+        <div id="scripts" class="page" role="tabpanel">
             No scripts on this page
         </div>
 
-        <div id="results" class="page">
+        <div id="results" class="page" role="tabpanel tablist">
             No results
         </div>
 
-        <div id="options" class="page">
+        <div id="options" class="page" role="tabpanel">
             <div class="clearfix columns">
                 <div class="column">
                     <label><input type="checkbox" name="devel" /> Assume <code>console</code>, <code>alert</code>, ...</label>
@@ -83,16 +83,16 @@
 
     <script id="result-row" type="text/ejs">
         <div class="result <% if (errors.length === 0) { %>success<% } else { %>error<% } %>">
-            <header>
-                <span class="error-count"><%= errors.length %></span>
+            <div role="tab" aria-selected="false" tabindex="0">
+                <span class="error-count" title="<%= errors.length %> errors"><%= errors.length %></span>
 
                 <div class="url">
                     <span class="filename"><%= url.filename %></span>
                     <span class="full"><%= url.href %></span>
                 </div>
-            </header>
+            </div>
 
-            <div class="details">
+            <div role="tabpanel" aria-expanded="false">
                 <%== report %>
             </div>
         </div>
@@ -101,13 +101,11 @@
     <script id="script-row" type="text/ejs">
         <% for (var i=0,l=scripts.length; i < l; i++) { %>
         <div class="script">
-            <header>
-                <label>
-                    <input type="checkbox" value="<%= scripts[i].url.href %>" <% if (scripts[i].enabled) { %>checked<% } %> />
-                    <span class="filename"><%= scripts[i].url.filename %></span>
-                    <span class="full"><%= scripts[i].url.href %></span>
-                </label>
-            </header>
+            <label>
+                <input type="checkbox" value="<%= scripts[i].url.href %>" <% if (scripts[i].enabled) { %>checked<% } %> />
+                <span class="filename"><%= scripts[i].url.filename %></span>
+                <span class="full"><%= scripts[i].url.href %></span>
+            </label>
         </div>
         <% } %>
 

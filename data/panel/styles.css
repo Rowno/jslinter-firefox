@@ -111,7 +111,7 @@ html, body {
                 font-weight: bold;
             }
 
-            #nav li.active, #nav li:hover {
+            #nav li[aria-selected="true"], #nav li:hover {
                 padding-bottom: 8px;
             }
 
@@ -143,29 +143,29 @@ html, body {
         font-size: 11px;
     }
 
-        :-moz-any(.script, .result) .details {
+        .result [role="tabpanel"] {
             display: none;
             padding: 5px 0;
         }
 
-        :-moz-any(.script, .result).open .details {
+        .result [role="tabpanel"][aria-expanded="true"] {
             display: block;
         }
 
-        :-moz-any(.script, .result) header {
+        .script, .result [role="tab"] {
             font-weight: bold;
         }
 
-            :-moz-any(.script, .result) header .full {
+            :-moz-any(.script, .result) .full {
                 display: none;
                 text-decoration: underline;
             }
 
-            :-moz-any(.script, .result) header:hover .full {
+            .script:hover .full, .result [role="tab"]:hover .full {
                 display: inline;
             }
 
-            :-moz-any(.script, .result) header:hover .filename {
+            .script:hover .filename, .result [role="tab"]:hover .filename {
                 display: none;
             }
 
@@ -175,29 +175,29 @@ html, body {
                 text-overflow: ellipsis;
             }
 
-    .result header {
+    .result [role="tab"] {
         padding-left: 14px;
         cursor: pointer;
         background: url(twistyClosed.png) no-repeat left top;
     }
 
-        .result.success header {
+        .result.success [role="tab"] {
             color: green;
         }
 
-        .result.error header {
+        .result.error [role="tab"] {
             color: red;
         }
 
-        .result.open header {
+        .result [role="tab"][aria-selected="true"] {
             background-image: url(twistyOpen.png);
         }
 
-        .result header .url {
+        .result [role="tab"] .url {
             margin-right: 3em;
         }
 
-        .result header .error-count {
+        .result [role="tab"] .error-count {
             float: right;
         }
 
@@ -206,15 +206,15 @@ html, body {
             border-bottom: 2px solid #a4c639;
         }
 
-            .result .details #errors p {
+            .result [role="tabpanel"] #errors p {
                 margin: 0.5em 0;
             }
 
-            .result .details #errors > i {
+            .result [role="tabpanel"] #errors > i {
                 display: none;
             }
 
-            .result .details #errors .evidence {
+            .result [role="tabpanel"] #errors .evidence {
                 border: 1px solid #D2E39C;
                 padding: 2px;
                 font-family: "Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace;
@@ -222,16 +222,16 @@ html, body {
                 margin-bottom: 1.5em;
             }
 
-            .result .details #functions {
+            .result [role="tabpanel"] #functions {
                 font-family: monospace;
             }
 
-            .result .details #functions div {
+            .result [role="tabpanel"] #functions div {
                 margin-left: 10em;
                 text-indent: -5em;
             }
 
-            .result .details #functions div.function {
+            .result [role="tabpanel"] #functions div.function {
                 margin-left: 0;
                 text-indent: 0;
             }
