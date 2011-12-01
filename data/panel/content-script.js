@@ -44,7 +44,7 @@ $results.delegate('.result [role="tab"]', 'click', function () {
     var $this = $(this),
         value;
 
-    value = !($this.attr('aria-selected') === 'true');
+    value = $this.attr('aria-selected') !== 'true';
 
     $this
         .attr('aria-selected', value)
@@ -68,7 +68,7 @@ $options.delegate('input', 'change', function () {
 
 
 var Pages = {
-    change: function(pageId) {
+    change: function (pageId) {
         var navItem = $nav.find('li[aria-controls=\'' + pageId + '\']');
 
         if (activePage.navItem !== navItem) {
@@ -79,7 +79,7 @@ var Pages = {
             activePage.page = $('#' + pageId).show();
         }
     }
-}
+};
 
 // Show the initial page
 activePage.navItem = $nav.find('li:first-child').attr('aria-selected', true);
