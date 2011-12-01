@@ -2,10 +2,10 @@
     "id": "jslinter@rolandwarmerdam.co.nz",
     "name": "jslinter",
     "fullName": "JSLinter",
-    "description": "The JavaScript Code Quality Tool",
+    "description": "Analyses all the Javascript files on a web page using JSLint",
     "author": "Roland Warmerdam",
     "homepage": "https://github.com/Rowno/jslinter",
-    "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
+    "license": "CC BY-SA 3.0",
     "version": "0.1",
     "icon": "data/icon.png"
 }
