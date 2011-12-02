@@ -109,9 +109,10 @@ html, body {
                 border-bottom: none;
                 background: #fff;
                 font-weight: bold;
+                outline: 0;
             }
 
-            #nav li[aria-selected="true"], #nav li:hover {
+            #nav li[aria-selected="true"], #nav li:-moz-any(:hover, :focus) {
                 padding-bottom: 8px;
             }
 
@@ -161,11 +162,11 @@ html, body {
                 text-decoration: underline;
             }
 
-            .script:hover .full, .result [role="tab"]:hover .full {
+            .script:hover .full, .result [role="tab"]:-moz-any(:hover, :focus) .full {
                 display: inline;
             }
 
-            .script:hover .filename, .result [role="tab"]:hover .filename {
+            .script:hover .filename, .result [role="tab"]:-moz-any(:hover, :focus) .filename {
                 display: none;
             }
 
@@ -179,6 +180,7 @@ html, body {
         padding-left: 14px;
         cursor: pointer;
         background: url(twistyClosed.png) no-repeat left top;
+        outline: 0;
     }
 
         .result.success [role="tab"] {
