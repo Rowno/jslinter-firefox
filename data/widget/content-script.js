@@ -1,16 +1,21 @@
-'use strict';
+/*global self: false */
 
-this.addEventListener('click', function (event) {
-    if (event.button === 0 && event.shiftKey === false) {
-        self.port.emit('left-click');
-    }
+(function (widget) {
+    'use strict';
 
-    if (event.button == 2 || (event.button === 0 && event.shiftKey === true)) {
-        self.port.emit('right-click');
-    }
-    event.preventDefault();
-}, true);
+    widget.addEventListener('click', function (event) {
+        if (event.button === 0 && event.shiftKey === false) {
+            self.port.emit('left-click');
+        }
 
-this.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-}, true);
+        if (event.button === 2 || (event.button === 0 && event.shiftKey === true)) {
+            self.port.emit('right-click');
+        }
+        event.preventDefault();
+    }, true);
+
+    // Prevent the addon bar context menu from showing on right click
+    widget.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+    }, true);
+}(this));
