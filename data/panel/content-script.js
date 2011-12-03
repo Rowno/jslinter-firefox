@@ -46,9 +46,8 @@ $results.accessibleClick('.result [role="tab"]', function () {
 
     value = $this.attr('aria-selected') !== 'true';
 
-    $this
-        .attr('aria-selected', value)
-        .next().attr('aria-expanded', value);
+    $this.attr('aria-selected', value);
+    $this.next().attr('aria-expanded', value);
 });
 
 // Emit an event when an option is changed
