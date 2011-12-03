@@ -34,7 +34,7 @@ self.port.on('options', function (options) {
 });
 
 // Emit an event when a script's enable/disable checkbox is changed
-$scripts.delegate('input', 'change', function () {
+$scripts.on('change', 'input', function () {
     var $this = $(this);
     self.port.emit('script-change', $this.val(), $this.is(':checked'));
 });
@@ -52,7 +52,7 @@ $results.accessibleClick('.result [role="tab"]', function () {
 });
 
 // Emit an event when an option is changed
-$options.delegate('input', 'change', function () {
+$options.on('change', 'input', function () {
     var $this = $(this),
         value;
 
@@ -123,7 +123,7 @@ var Analyse = {
     }
 };
 
-$analyse.click(function () {
+$analyse.on('click', function () {
     $analyse.blur();
     Analyse.start();
 });
