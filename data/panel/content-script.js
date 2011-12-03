@@ -7,6 +7,7 @@ var $scripts = $('#scripts'),
     $analyse = $('#analyse'),
     $results = $('#results'),
     $options = $('#options'),
+    $close = $('#close'),
     activePage = {};
 
 
@@ -62,6 +63,10 @@ $options.on('change', 'input', function () {
     }
 
     self.port.emit('option-change', $this.attr('name'), value);
+});
+
+$close.on('click', function () {
+    self.port.emit('close');
 });
 
 
