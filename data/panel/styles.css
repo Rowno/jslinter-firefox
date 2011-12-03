@@ -109,7 +109,6 @@ html, body {
                 border-bottom: none;
                 background: #fff;
                 font-weight: bold;
-                outline: 0;
             }
 
             #nav li[aria-selected="true"], #nav li:-moz-any(:hover, :focus) {
@@ -180,7 +179,6 @@ html, body {
         padding-left: 14px;
         cursor: pointer;
         background: url(twistyClosed.png) no-repeat left top;
-        outline: 0;
     }
 
         .result.success [role="tab"] {

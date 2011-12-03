@@ -40,7 +40,7 @@ $scripts.delegate('input', 'change', function () {
 });
 
 // Show/hide a script's analysis report
-$results.delegate('.result [role="tab"]', 'click', function () {
+$results.accessibleClick('.result [role="tab"]', function () {
     var $this = $(this),
         value;
 
@@ -87,7 +87,7 @@ activePage.page = $('#' + activePage.navItem.attr('aria-controls')).show();
 
 
 // Change the active page when a menu item is clicked
-$nav.delegate('li', 'click', function () {
+$nav.accessibleClick('li', function () {
     Pages.change($(this).attr('aria-controls'));
 });
 
