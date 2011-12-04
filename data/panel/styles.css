@@ -77,6 +77,8 @@ html, body {
     height: 100%;
 }
 
+:focus:hover { outline: 0 !important; }
+
 #header {
     position: absolute;
     top: 5px;
@@ -114,6 +116,7 @@ html, body {
 
             #nav li[aria-selected="true"], #nav li:-moz-any(:hover, :focus) {
                 padding-bottom: 8px;
+                background: -moz-linear-gradient(top, #ecffb0, #fff);
             }
 
         #nav .actions {
@@ -133,7 +136,7 @@ html, body {
             }
 
             #close:focus {
-                outline: dotted 1px;
+                outline: thin dotted;
             }
 
             #close:before {
@@ -245,7 +248,7 @@ html, body {
             float: right;
         }
 
-        .result .details #errors {
+        .result [role="tabpanel"] #errors {
             padding-bottom: 1em;
             border-bottom: 2px solid #a4c639;
         }
