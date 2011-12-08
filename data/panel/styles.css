@@ -86,11 +86,11 @@ html, body {
     right: 5px;
 }
 
-    #header h1 {
+    #header img {
+        width: 32px;
+        height: 32px;
         float: left;
-        margin: 0;
-        font-size: 24px;
-        color: #a4c639;
+        margin: 0 4px;
     }
 
     #nav {
@@ -105,7 +105,7 @@ html, body {
 
             #nav li {
                 float: left;
-                margin-left: 5px;
+                margin-right: 5px;
                 padding: 5px;
                 cursor: pointer;
                 border: 3px solid #a4c639;
@@ -121,7 +121,6 @@ html, body {
 
         #nav .actions {
             float: left;
-            margin-left: 5px;
         }
 
             #close {
