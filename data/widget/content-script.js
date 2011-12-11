@@ -1,5 +1,8 @@
 /*global self: false */
 
+/**
+ * Emits events for left and right clicks.
+ */
 (function (widget) {
     'use strict';
 

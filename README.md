@@ -1,5 +1,1 @@
-This is the jslint add-on.  It contains:
-
-* A program (lib/main.js).
-* A few tests.
-* Some meager documentation.
+A Firefox addon that analyses all the Javascript files on a web page using JSLint.

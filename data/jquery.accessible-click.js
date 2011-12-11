@@ -1,5 +1,11 @@
 /*global jQuery: false */
 
+/**
+ * AccessibleClick jQuery plugin which registers a keyboard accessible click event.
+ *
+ * This plugin adds a .accessibleClick() method which has the same API as the jQuery .on() method, but without the
+ * 'events' parameter.
+ */
 (function ($) {
     'use strict';
 
