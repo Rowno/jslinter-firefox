@@ -131,39 +131,11 @@ html, body {
                 height: 24px;
                 padding: 0;
                 border: transparent;
-                background: transparent;
+                background: url(../close.png);
             }
 
             #close:focus {
                 outline: thin dotted;
-            }
-
-            #close:before {
-                content: '';
-                position: absolute;
-                top: -9px;
-                left: 12px;
-                display: block;
-                width: 14px;
-                height: 14px;
-                border: 3px solid #a4c639;
-                border-top: none;
-                border-right: none;
-                -moz-transform: rotate(45deg);
-            }
-
-            #close:after {
-                content: '';
-                position: absolute;
-                top: -9px;
-                left: -8px;
-                display: block;
-                width: 14px;
-                height: 14px;
-                border: 3px solid #a4c639;
-                border-top: none;
-                border-right: none;
-                -moz-transform: rotate(225deg);
             }
 
 #main {
