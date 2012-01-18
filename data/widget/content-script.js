@@ -15,10 +15,10 @@
             self.port.emit('right-click');
         }
         event.preventDefault();
-    }, true);
+    }, false);
 
     // Prevent the addon bar context menu from showing on right click
     widget.addEventListener('contextmenu', function (event) {
         event.preventDefault();
-    }, true);
+    }, false);
 }(this));
