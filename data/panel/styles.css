@@ -107,6 +107,7 @@ html, body {
                 float: left;
                 margin-right: 5px;
                 padding: 5px;
+                line-height: 17px; /* Prevents a gap from appearing under the tabs due to varying rendered font sizes */
                 cursor: pointer;
                 border: 3px solid #a4c639;
                 border-bottom: none;
