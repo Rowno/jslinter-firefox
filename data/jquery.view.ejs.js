@@ -1,3 +1,11 @@
+/*!
+ * JavascriptMVC v3.2.2
+ * http://javascriptmvc.com/
+ *
+ * Custom build libraries:
+ * * jquery/view/ejs/ejs.js
+ */
+
 
 //jquery.view.js
 
