@@ -128,11 +128,16 @@ html, body {
                 position: absolute;
                 top: 0;
                 right: 0;
-                width: 24px;
-                height: 24px;
                 padding: 0;
                 border: transparent;
-                background: url(../close.png);
+                background: transparent;
+                color: #a4c639;
+                font: 35px Arial;
+                line-height: 20px;
+            }
+
+            #close:hover {
+                color: #C9DD88;
             }
 
             #close:focus {
