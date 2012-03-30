@@ -4,7 +4,7 @@
     "fullName": "JSLinter",
     "description": "Analyses all the Javascript files on a web page using JSLint",
     "author": "Roland Warmerdam",
-    "homepage": "https://github.com/Rowno/jslinter",
+    "homepage": "https://github.com/Rowno/jslinter-firefox",
     "license": "CC BY-SA 3.0",
     "version": "1.0.6",
     "icon": "data/icon32.png",
