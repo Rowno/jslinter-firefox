@@ -16,9 +16,4 @@
         }
         event.preventDefault();
     }, false);
-
-    // Prevent the addon bar context menu from showing on right click
-    widget.addEventListener('contextmenu', function (event) {
-        event.preventDefault();
-    }, false);
 }(this));
