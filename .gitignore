@@ -9,18 +9,18 @@
 *.vi
 *~
 *.sass-cache
-*.pyc
-*.xpi
 
 # OS or Editor folders
 .DS_Store
+Thumbs.db
 .cache
 .project
-.idea
 .settings
 .tmproj
+*.esproj
 nbproject
-Thumbs.db
+*.sublime-project
+*.sublime-workspace
 
 # Dreamweaver added files
 _notes
@@ -34,3 +34,7 @@ dwsync.xml
 .hg
 .svn
 .CVS
+.idea
+
+# Build files
+*.xpi
