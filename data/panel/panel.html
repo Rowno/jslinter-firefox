@@ -95,7 +95,15 @@
             </div>
 
             <div role="tabpanel" aria-expanded="false">
-                <%== report %>
+                <div class="errors">
+                    <%== reports.errors %>
+                </div>
+                <div class="functions">
+                    <%== reports.functions %>
+                </div>
+                <div class="properties">
+                    <%== reports.properties %>
+                </div>
             </div>
         </div>
     </script>
