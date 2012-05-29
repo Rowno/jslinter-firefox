@@ -1,4 +1,4 @@
-/*global self: false, $: false */
+/*global self: false, $: false, Hogan: false */
 
 (function () {
     'use strict';
@@ -10,14 +10,16 @@
         $close = $('#close'),
         Tabs,
         Analyse,
-        $activeResult = null;
+        $activeResult = null,
+        templateScript = Hogan.compile($('#template-script').html()),
+        templateResult = Hogan.compile($('#template-result').html());
 
 
 
     /***** Load event handlers *****/
 
     self.port.on('scripts-load', function (scripts) {
-        $scripts.html('script-row', {scripts: scripts});
+        $scripts.html(templateScript.render({scripts: scripts}));
     });
 
     self.port.on('options-load', function (options) {
@@ -171,7 +173,7 @@
     });
 
     self.port.on('analysis-result', function (result) {
-        $results.append('result-row', result);
+        $results.append(templateResult.render(result));
     });
 
     self.port.on('analysis-complete', function () {

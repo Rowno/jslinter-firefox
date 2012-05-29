@@ -83,48 +83,48 @@
         </div>
     </div>
 
-    <script id="result-row" type="text/ejs">
-        <div class="result <% if (errors.length === 0) { %>success<% } else { %>error<% } %>">
+    <script id="template-result" type="text/x-mustache">
+        <div class="result {{^errors.length}}success{{/errors.length}}{{#errors.length}}error{{/errors.length}}">
             <div role="tab" aria-selected="false" tabindex="0">
-                <span class="error-count" title="<%= errors.length %> errors"><%= errors.length %></span>
+                <span class="error-count" title="{{errors.length}} errors">{{errors.length}}</span>
 
                 <div class="url">
-                    <span class="filename"><%= url.filename %></span>
-                    <span class="full"><%= url.href %></span>
+                    <span class="filename">{{url.filename}}</span>
+                    <span class="full">{{url.href}}</span>
                 </div>
             </div>
 
             <div role="tabpanel" aria-expanded="false">
                 <div class="report errors">
                     <div class="heading">Errors</div>
-                    <%== reports.errors %>
+                    {{{reports.errors}}}
                 </div>
                 <div class="report functions">
                     <div class="heading">Functions</div>
-                    <%== reports.functions %>
+                    {{{reports.functions}}}
                 </div>
                 <div class="report properties">
                     <div class="heading">Properties</div>
-                    <%== reports.properties %>
+                    {{{reports.properties}}}
                 </div>
             </div>
         </div>
     </script>
 
-    <script id="script-row" type="text/ejs">
-        <% for (var i=0,l=scripts.length; i < l; i++) { %>
+    <script id="template-script" type="text/x-mustache">
+        {{#scripts}}
         <div class="script">
             <label>
-                <input type="checkbox" value="<%= scripts[i].url.href %>" <% if (scripts[i].enabled) { %>checked<% } %> />
-                <span class="filename"><%= scripts[i].url.filename %></span>
-                <span class="full"><%= scripts[i].url.href %></span>
+                <input type="checkbox" value="{{url.href}}" {{#enabled}}checked{{/enabled}} />
+                <span class="filename">{{url.filename}}</span>
+                <span class="full">{{url.href}}</span>
             </label>
         </div>
-        <% } %>
+        {{/scripts}}
 
-        <% if (scripts.length === 0) { %>
+        {{^scripts}}
         No scripts on this page
-        <% } %>
+        {{/scripts}}
     </script>
 </body>
 </html>
