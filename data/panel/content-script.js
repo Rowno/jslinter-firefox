@@ -9,7 +9,8 @@
         $options = $('#options'),
         $close = $('#close'),
         Tabs,
-        Analyse;
+        Analyse,
+        $activeResult = null;
 
 
 
@@ -65,15 +66,34 @@
 
 
 
-    // Show/hide a script's analysis report
-    $results.accessibleClick('.result [role="tab"]', function () {
-        var $this = $(this),
+    /***** Result toggle functionality *****/
+
+    function toogleResult($result) {
+        var $tab = $result.find('[role="tab"]'),
+            $tabPanel = $result.find('[role="tabpanel"]'),
             value;
 
-        value = $this.attr('aria-selected') !== 'true';
+        value = $tab.attr('aria-selected') !== 'true';
 
-        $this.attr('aria-selected', value);
-        $this.next().attr('aria-expanded', value);
+        $tab.attr('aria-selected', value);
+        $tabPanel.attr('aria-expanded', value);
+    }
+
+    $results.accessibleClick('.result [role="tab"]', function () {
+        var $result = $(this).parent();
+
+        if ($activeResult) {
+            if ($result.get(0) === $activeResult.get(0)) {
+                $activeResult = null;
+            } else {
+                toogleResult($activeResult);
+                $activeResult = $result;
+            }
+        } else {
+            $activeResult = $result;
+        }
+
+        toogleResult($result);
     });
 
 
@@ -142,7 +162,6 @@
     }
 
     $analyse.on('click', function () {
-        $analyse.blur();
         analyse();
     });
 
