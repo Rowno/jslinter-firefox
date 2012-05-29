@@ -77,6 +77,10 @@ html, body {
     height: 100%;
 }
 
+address {
+    display: inline;
+}
+
 :focus:hover { outline: 0 !important; }
 
 #header {
@@ -225,40 +229,64 @@ html, body {
             float: right;
         }
 
-        .result [role="tabpanel"] #errors {
-            padding-bottom: 1em;
-            border-bottom: 2px solid #a4c639;
+
+    /***** JSLint reports *****/
+
+    .result .report {
+        margin: 2em 0;
+    }
+
+        .result .report:first-of-type {
+            margin-top: 0;
         }
 
-            .result [role="tabpanel"] #errors p {
-                margin: 0.5em 0;
-            }
+        .result .report:last-of-type {
+            margin-bottom: 0;
+        }
 
-            .result [role="tabpanel"] #errors > i {
-                display: none;
-            }
+        .result .report .heading {
+            margin-bottom: 0.5em;
+            font: bold 16px sans-serif;
+            color: #a4c639;
+        }
 
-            .result [role="tabpanel"] #errors .evidence {
-                border: 1px solid #D2E39C;
-                padding: 2px;
-                font-family: "Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace;
-                color: #000;
-                margin-bottom: 1.5em;
-            }
+    .result .errors pre, .result .functions, .result .properties {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
 
-            .result [role="tabpanel"] #functions {
-                font-family: monospace;
-            }
+    .result .errors cite address, .result .functions address {
+        float: right;
+    }
 
-            .result [role="tabpanel"] #functions div {
-                margin-left: 10em;
-                text-indent: -5em;
-            }
+    .result .errors {
+    }
 
-            .result [role="tabpanel"] #functions div.function {
-                margin-left: 0;
-                text-indent: 0;
-            }
+        .result .errors cite {
+            font-style: normal;
+        }
+
+        .result .errors pre {
+            margin: 0.25em 0 1em 0;
+            padding: 2px;
+            border: 1px solid #D2E39C;
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            color: #000;
+            white-space: normal;
+        }
+
+    .result .functions {
+    }
+
+        .result .functions dt {
+            margin-left: 3em;
+        }
+
+        .result .functions dd {
+            margin-left: 6em;
+        }
+
+    /***** End JSLint reports *****/
+
 
     #options .columns {
         margin-bottom: 1.5em;
