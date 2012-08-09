@@ -36,50 +36,54 @@
         <div id="options" class="page" role="tabpanel">
             <div class="clearfix columns">
                 <div class="column">
-                    <label><input type="checkbox" name="devel" /> Assume <code>console</code>, <code>alert</code>, ...</label>
+                    <label><input type="checkbox" name="bitwise" /> Tolerate bitwise operators</label>
+                    <label><input type="checkbox" name="continue" /> Tolerate <code>continue</code></label>
+                    <label><input type="checkbox" name="debug" /> Tolerate <code>debugger</code> statements</label>
+                    <label><input type="checkbox" name="eqeq" /> Tolerate <code>==</code> and <code>!=</code></label>
+                    <label><input type="checkbox" name="es5" /> Tolerate ES5 syntax</label>
+                    <label><input type="checkbox" name="evil" /> Tolerate <code>eval</code></label>
+                    <label><input type="checkbox" name="forin" /> Tolerate unfiltered <code>for in</code></label>
+                    <label><input type="checkbox" name="newcap" /> Tolerate uncapitalized constructors</label>
+                    <label><input type="checkbox" name="nomen" /> Tolerate dangling <code>_</code> in identifiers</label>
+                    <label><input type="checkbox" name="plusplus" /> Tolerate <code>++</code> and <code>--</code></label>
+                    <label><input type="checkbox" name="regexp" /> Tolerate <code>.</code> and <code>[^...]</code> in /RegExp/</label>
+                    <label><input type="checkbox" name="undef" /> Tolerate misordered definitions</label>
+                    <label><input type="checkbox" name="unparam" /> Tolerate unused parameters</label>
+                    <label><input type="checkbox" name="sloppy" /> Tolerate missing <code>'use strict'</code> pragma</label>
+                    <label><input type="checkbox" name="stupid" /> Tolerate stupidity</label>
+                    <label><input type="checkbox" name="sub" /> Tolerate inefficient subscripting</label>
+                    <label><input type="checkbox" name="todo" /> Tolerate TODO comments</label>
+                </div>
+
+                <div class="column">
+                    <label><input type="checkbox" name="vars" /> Tolerate many <code>var</code> statements per function</label>
+                    <label><input type="checkbox" name="white" /> Tolerate messy white space</label>
+                    <label><input type="checkbox" name="css" /> Tolerate CSS workarounds</label>
+                    <label><input type="checkbox" name="cap" /> Tolerate HTML case</label>
+                    <label><input type="checkbox" name="on" /> Tolerate HTML event handlers</label>
+                    <label><input type="checkbox" name="fragment" /> Tolerate HTML fragments</label>
+                    <br />
                     <label><input type="checkbox" name="browser" /> Assume a browser</label>
+                    <label><input type="checkbox" name="devel" /> Assume <code>console</code>, <code>alert</code>, ...</label>
                     <label><input type="checkbox" name="node" /> Assume Node.js</label>
                     <label><input type="checkbox" name="rhino" /> Assume Rhino</label>
-                    <label><input type="checkbox" name="widget" /> Assume a Yahoo Widget</label>
                     <label><input type="checkbox" name="windows" /> Assume Windows</label>
                     <br />
                     <label><input type="checkbox" name="passfail" /> Stop on first error</label>
                     <br />
                     <label><input type="checkbox" name="safe" /> Safe Subset</label>
                     <label><input type="checkbox" name="adsafe" /> Verify ADsafe</label>
-                    <br />
-                    <label><input type="checkbox" name="bitwise" /> Tolerate bitwise operators</label>
-                    <label><input type="checkbox" name="continue" /> Tolerate <code>continue</code></label>
-                    <label><input type="checkbox" name="debug" /> Tolerate <code>debugger</code> statements</label>
-                    <label><input type="checkbox" name="eqeq" /> Tolerate <code>==</code> and <code>!=</code></label>
-                    <label><input type="checkbox" name="es5" /> Tolerate ES5 syntax</label>
-                </div>
-
-                <div class="column">
-                    <label><input type="checkbox" name="evil" /> Tolerate <code>eval</code></label>
-                    <label><input type="checkbox" name="forin" /> Tolerate unfiltered <code>for</code> <code>in</code></label>
-                    <label><input type="checkbox" name="newcap" /> Tolerate uncapitalized constructors</label>
-                    <label><input type="checkbox" name="nomen" /> Tolerate dangling <code>_</code> in identifiers</label>
-                    <label><input type="checkbox" name="plusplus" /> Tolerate <code>++</code> and <code>--</code></label>
-                    <label><input type="checkbox" name="regexp" /> Tolerate <code>.</code> and <code>[^</code>...<code>]</code> in /RegExp/</label>
-                    <label><input type="checkbox" name="undef" /> Tolerate misordered definitions</label>
-                    <label><input type="checkbox" name="unparam" /> Tolerate unused parameters</label>
-                    <label><input type="checkbox" name="sloppy" /> Tolerate missing <code>'use strict'</code> pragma</label>
-                    <label><input type="checkbox" name="stupid" /> Tolerate stupidity</label>
-                    <label><input type="checkbox" name="sub" /> Tolerate inefficient subscripting</label>
-                    <label><input type="checkbox" name="vars" /> Tolerate many <code>var</code> statements per function</label>
-                    <label><input type="checkbox" name="white" /> Tolerate messy white space</label>
-                    <label><input type="checkbox" name="css" /> Tolerate CSS workarounds</label>
-                    <label><input type="checkbox" name="cap" /> Tolerate <code>HTML</code> case</label>
-                    <label><input type="checkbox" name="on" /> Tolerate <code>HTML</code> event handlers</label>
-                    <label><input type="checkbox" name="fragment" /> Tolerate <code>HTML</code> fragments</label>
                 </div>
             </div>
 
             <label><input type="text" name="indent" class="number" /> Indentation</label>
             <label><input type="text" name="maxlen" class="number" /> Maximum line length</label>
             <label><input type="text" name="maxerr" class="number" /> Maximum number of errors</label>
-            <label>Predefined ( <code>,</code> separated) <input type="text" name="predef" class="list" /></label>
+            <br />
+            <label>
+                Predefined global variables (comma separated)<br />
+                <input type="text" name="predef" class="list" />
+            </label>
         </div>
     </div>
 
