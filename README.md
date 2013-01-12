@@ -8,6 +8,6 @@ JSLinter is available for download at [addons.mozilla.org](https://addons.mozill
 
 License
 -------
-JSLinter is licensed under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
+JSLinter is released under the MIT license.
 
-Copyright 2012, Roland Warmerdam.
+Copyright © 2012 Roland Warmerdam.
